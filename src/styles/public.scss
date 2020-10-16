@@ -1,0 +1,163 @@
+@charset "utf-8";
+
+body,
+ol,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+th,
+td,
+dl,
+dd,
+form,
+fieldset,
+legend,
+figure,
+input,
+textarea,
+select {
+	margin: 0;
+	padding: 0;
+}
+
+fieldset,
+a img,
+.bor0 {
+	border: 0;
+}
+
+li {
+	list-style: none;
+}
+
+a,
+u,
+s,
+del {
+	text-decoration: none;
+}
+
+i,
+em,
+b {
+	font-style: normal;
+	font-weight: normal;
+}
+
+a img {
+	border: 0;
+}
+
+
+input,
+textarea,
+table,
+div {
+	outline: none;
+}
+
+/*去除谷歌点击蓝色虚框*/
+
+textarea {
+	resize: none;
+}
+
+/*禁止多行文本输入框的拖动*/
+html,
+body {
+	height: 100%;
+}
+
+::-webkit-scrollbar
+/*整体部分*/
+
+	{
+	width: 10px;
+	height: 10px;
+}
+
+::-webkit-scrollbar:hover {
+	display: block;
+}
+
+::-webkit-scrollbar-thumb
+/*滑块*/
+
+	{
+	border-radius: 5px;
+	box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+	background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover
+/*滑块效果*/
+
+{
+	border-radius: 5px;
+	box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+	background: rgba(0, 0, 0, 0.4);
+}
+
+.table-wrap.dark .table .tBody table tr {
+	background: #243443;
+	td {
+		transition: font-size 0.2s linear;
+	}
+}
+.table-wrap.dark .table .tBody table tr.odd {
+	background: #232d37;
+}
+.table-wrap.dark .table .tBody table tr.tr-active {
+	background: #3c9afb;
+}
+.table-wrap.dark .table .tBody table {
+	color: #fff;
+	border-collapse: separate;
+}
+
+.table-wrap.dark .table .tHead table td {
+	color: #fff;
+}
+
+.table-wrap.dark .table .tBody table td {
+	border-bottom: 5px solid #243443;
+	&:nth-child(1) {
+		border-radius: 0 0 0 8px;
+	}
+	&:last-child {
+		border-radius: 0 0 8px 0;
+	}
+}
+
+.table-wrap.dark .table .tBody table tr.tr-hover td{
+	border-bottom: 5px solid #243443;
+	border-top: 0;
+}
+
+.table-wrap.dark .table .tBody table tr.tr-active {
+	color: #fff;
+	td {
+		font-size: 16px;
+	}
+}
+
+.text-ellipsis{
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+
+em{
+	color: red;
+	font-weight: 900;
+}
+
+.echarts{
+	width:100%;
+	height:100%;
+}
