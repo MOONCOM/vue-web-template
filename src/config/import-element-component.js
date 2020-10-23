@@ -3,7 +3,7 @@ import {
   InputNumber, Radio, RadioGroup, RadioButton, Checkbox, CheckboxButton, CheckboxGroup, Switch,
   Select, Option, Button, ButtonGroup, Table, TableColumn, DatePicker, TimePicker, Popover, Tooltip,
   Breadcrumb, BreadcrumbItem, Form, FormItem, Tabs, TabPane, Row, Col, Container, Header, Aside, Main,
-  Footer, Image, Backtop, PageHeader, MessageBox, Message,
+  Footer, Image, Backtop, PageHeader, MessageBox, Message, Carousel, CarouselItem,
 } from 'element-ui';
 
 export default function (vue) {
@@ -12,7 +12,7 @@ export default function (vue) {
     InputNumber, Radio, RadioGroup, RadioButton, Checkbox, CheckboxButton, CheckboxGroup, Switch,
     Select, Option, Button, ButtonGroup, Table, TableColumn, DatePicker, TimePicker, Popover, Tooltip,
     Breadcrumb, BreadcrumbItem, Form, FormItem, Tabs, TabPane, Row, Col, Container, Header, Aside, Main,
-    Footer, Image, Backtop, PageHeader].forEach((item) => {
+    Footer, Image, Backtop, PageHeader, Carousel, CarouselItem].forEach((item) => {
     Vue.component(item.name, item);
   });
   Vue.prototype.$msgbox = MessageBox;

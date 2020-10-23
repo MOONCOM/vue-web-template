@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import dayjs from 'dayjs';
 import './import-echarts';
+import './axios.config';
 import element from './import-element-component';
 import component from './import-global-component';
 import thirdPartComponent from './import-third-party-component';

@@ -7,9 +7,8 @@
       >
     </div>
     <div class="operate-content">
-      <span class="iconfont">&#xe613;</span>
-      <h1>custom系统</h1>
-      <h4>Energy Saving And Emission Reduction System</h4>
+      <h1>{{ $root.title }}</h1>
+      <h4>{{ $root.enTitle }}</h4>
       <el-form
         ref="form"
         :model="form"
@@ -44,13 +43,16 @@
           <el-button
             class=""
             type="primary"
+            :loading="loginLoading"
             @click="handleSubmit"
           >
             登录
           </el-button>
         </el-form-item>
-        <el-form-item>
-          还没有账户？ <router-link :to="{path:'/register'}">免费注册</router-link>
+        <el-form-item :style="{marginTop:'0px'}">
+          还没有账户？ <router-link :to="{path:'/register'}">
+            免费注册
+          </router-link>
         </el-form-item>
       </el-form>
     </div>
@@ -58,6 +60,9 @@
 </template>
 
 <script>
+/*
+* 这是登录界面
+* */
 import { mapActions } from 'vuex';
 
 const imageBg = require('@/assets/login-bg.png');
@@ -66,6 +71,8 @@ export default {
   name: 'LoginPage',
   data() {
     return {
+      // 登录时的loading效果
+      loginLoading: false,
       imageBg,
       form: {
         username: '',
@@ -85,14 +92,21 @@ export default {
 
   },
   methods: {
-    ...mapActions('menu', [
-      'getMenuMessage',
+    ...mapActions('user', [
+      'login',
     ]),
+    // 登录按钮触发
     handleSubmit() {
       this.$refs.form.validate((valid) => {
         if (valid) {
           // 校验通过，请求登录接口
-          this.$router.replace('/');
+          this.loginLoading = true;
+          this.login(this.form).then(() => {
+            this.$message.success('登录成功');
+            this.$router.replace('/');
+          }).finally(() => {
+            this.loginLoading = false;
+          });
         }
       });
     },
@@ -101,7 +115,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '~@/styles/global-color-var.scss';
+@import '@/styles/global-color-var.scss';
 .login-page{
   position: relative;
   .operate-content{
@@ -137,7 +151,7 @@ export default {
       text-align: left;
       .el-form-item{
         width: 75%;
-        margin: 26px auto;
+        margin: 26px auto 0;
       }
       /deep/.el-input{
         .el-input__prefix{
@@ -168,6 +182,7 @@ export default {
     background-color: #0e0e0e;
     >img{
       position: absolute;
+      width:100%;
       left:50%;
       bottom:0;
       transform: translateX(-50%);
